@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nexo, un espacio compartido para organizar asuntos, colaborar y registrar las horas de tu equipo.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Nexo · El espacio de tu equipo</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%23141414'/%3E%3Cpath d='M12 28V12h4l8 11V12h4v16h-4L16 17v11z' fill='%23d4f477'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+  <!-- Scripts clásicos: la demo también funciona al abrir index.html directamente. -->
+  <script src="./config.js" defer></script>
+  <script src="./data.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Ir al contenido</a>
+  <section id="auth-view" aria-label="Acceso a Nexo">
+    <div class="auth-layout">
+      <div class="auth-story">
+        <a class="brand" href="./index.html" aria-label="Nexo, inicio">
+          <span class="brand-name">nexo<span class="brand-period">.</span></span><span class="brand-description">Espacio de trabajo</span>
+        </a>
+        <div class="auth-copy">
+          <p class="eyebrow">ASUNTOS / HORAS / EQUIPO</p>
+          <h1>Trabajo<br>en común<span class="title-period">.</span></h1>
+          <p>Organiza los asuntos del equipo<br>y lleva un registro del tiempo.</p>
+          <div class="auth-index" aria-label="Contenido del espacio">
+            <div><span>01</span><strong>Asuntos</strong><span>Proyectos y tareas</span></div>
+            <div><span>02</span><strong>Horas</strong><span>Registro de actividad</span></div>
+            <div><span>03</span><strong>Equipo</strong><span>Personas y accesos</span></div>
+          </div>
+        </div>
+        <p class="auth-footer"><span>NEXO — ESPACIO COMPARTIDO</span><span>ACCESO</span></p>
+      </div>
+      <div class="auth-panel">
+        <div class="auth-card">
+          <span class="demo-badge" id="auth-mode-badge">DEMOSTRACIÓN</span>
+          <h2 id="auth-title">Acceso</h2>
+          <p class="muted" id="auth-subtitle">Introduce tus datos para entrar.</p>
+          <div class="auth-tabs" id="auth-tabs" hidden role="group" aria-label="Tipo de acceso">
+            <button type="button" class="active" data-auth-mode="login">Entrar</button>
+            <button type="button" data-auth-mode="signup">Crear mi cuenta</button>
+          </div>
+          <form id="auth-form">
+            <div class="form-field" id="auth-name-wrap" hidden><label for="auth-name">Tu nombre</label><input id="auth-name" name="name" autocomplete="name" maxlength="80" placeholder="¿Cómo te llamas?"></div>
+            <div class="form-field"><label for="auth-user" id="auth-user-label">Usuario</label><input id="auth-user" name="identifier" autocomplete="username" autocapitalize="none" spellcheck="false" required placeholder="Tu usuario" maxlength="254"></div>
+            <div class="form-field" id="auth-password-wrap"><label for="auth-password">Contraseña</label><div class="password-field"><input id="auth-password" name="password" type="password" autocomplete="current-password" required placeholder="Tu contraseña"><button class="icon-button" type="button" id="toggle-password" aria-label="Mostrar contraseña" title="Mostrar contraseña"><span data-icon="eye"></span></button></div></div>
+            <p id="auth-error" class="error-box" role="alert" hidden></p>
+            <p id="auth-info" class="info-box" role="status" hidden></p>
+            <button class="btn btn-primary auth-submit" type="submit" id="auth-submit">Entrar <span data-icon="arrow"></span></button>
+          </form>
+          <button class="text-button forgot-link" type="button" id="forgot-password" hidden>He olvidado mi contraseña</button>
+          <div class="demo-accounts" id="demo-accounts">
+            <div class="separator"><span>CUENTAS DE PRUEBA</span></div>
+            <button class="demo-account" type="button" data-demo-user="marina"><span><strong>Marina</strong><small>Administración</small></span><span data-icon="arrow"></span></button>
+            <button class="demo-account" type="button" data-demo-user="hoda"><span><strong>Hoda</strong><small>Miembro</small></span><span data-icon="arrow"></span></button>
+            <button class="demo-account" type="button" data-demo-user="antonio"><span><strong>Antonio</strong><small>Miembro</small></span><span data-icon="arrow"></span></button>
+            <p class="hint">Cuentas de prueba. Los cambios de la demo se guardan solo en este navegador.</p>
+          </div>
+          <p id="signup-note" class="hint" hidden>Usa el correo que haya autorizado la persona administradora del equipo. Tu contraseña es personal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="app-view" class="app-layout" hidden>
+    <header class="sidebar" aria-label="Cabecera de la aplicación">
+      <a class="brand sidebar-brand" href="./index.html" aria-label="Nexo, inicio"><span class="brand-name">nexo<span class="brand-period">.</span></span></a>
+      <nav class="sidebar-nav">
+        <button class="nav-button active" data-view="board" aria-current="page"><span class="nav-index">01</span>Asuntos<span class="nav-count" id="nav-task-count">0</span></button>
+        <button class="nav-button" data-view="hours"><span class="nav-index">02</span>Horas</button>
+        <button class="nav-button" data-view="team"><span class="nav-index">03</span>Equipo<span class="nav-count" id="nav-team-count">3</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="icon-button help-nav" data-action="help" aria-label="Ayuda" title="Ayuda"><span data-icon="help"></span></button>
+        <div class="user-menu"><div id="sidebar-avatar"></div><div class="user-details"><strong id="current-user-name"></strong><small id="current-user-role"></small></div><button class="icon-button" id="logout-button" aria-label="Cerrar sesión" title="Cerrar sesión"><span data-icon="logout"></span></button></div>
+      </div>
+    </header>
+    <main class="main-content" id="main-content" tabindex="-1">
+      <header class="topbar">
+        <div class="breadcrumbs"><span>Espacio de trabajo</span><span class="breadcrumb-slash">/</span><strong id="current-view-name">Asuntos</strong></div>
+        <div class="mode-card"><span class="mode-dot" id="mode-dot"></span><div><strong id="mode-label">Demostración local</strong><small id="sync-label">Solo en este navegador</small></div></div>
+        <div class="topbar-actions"><span id="topbar-date" class="topbar-date"></span><div class="avatar-stack" id="topbar-avatars"></div><button class="icon-button" data-action="refresh" aria-label="Actualizar datos" title="Actualizar datos"><span data-icon="refresh"></span></button></div>
+      </header>
+      <div class="main-inner">
+        <div class="demo-banner" id="demo-banner"><span>Modo de prueba. Los cambios se guardan en este navegador.</span><button class="text-button" data-action="help">Configurar acceso compartido <span data-icon="arrow"></span></button></div>
+        <div class="error-box" id="app-error" role="alert" hidden></div>
+        <div id="running-timer-banner" hidden></div>
+        <section id="view-content" aria-live="polite"></section>
+      </div>
+    </main>
+  </div>
+
+  <dialog class="modal" id="main-dialog" aria-labelledby="dialog-title"></dialog>
+  <div id="toast-region" aria-live="polite" aria-atomic="false"></div>
+  <noscript><p class="error-box">Activa JavaScript en tu navegador para usar el tablero y registrar las horas.</p></noscript>
+</body>
+</html>

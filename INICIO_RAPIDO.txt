@@ -1,0 +1,36 @@
+NEXO - GUIA RAPIDA PARA ABRIR LA WEB
+==================================
+
+1. Descarga Nexo_Equipo_Proyecto.zip y extrae el contenido.
+2. Abre Visual Studio Code.
+3. Selecciona Archivo > Abrir carpeta y elige la carpeta "nexo-equipo".
+4. Haz doble clic en el archivo "index.html" desde el explorador de archivos para abrirlo en tu navegador. Tambien puedes usar la extension Live Server de VS Code (opcion recomendada).
+5. Entra con una de estas cuentas de DEMOSTRACION:
+   Marina: usuario marina  / contrasena MarinaDemo2026!
+   Hoda:   usuario hoda    / contrasena HodaDemo2026!
+   Antonio:usuario antonio / contrasena AntonioDemo2026!
+
+QUE PUEDES PROBAR
+----------------
+- TABLERO: crear asuntos, asignar personas y arrastrar tarjetas entre columnas.
+- HORAS: registrar el tiempo, usar el cronometro, ver estadisticas y exportar CSV.
+- EQUIPO: consultar personas y gestionar accesos desde el rol de administracion.
+
+IMPORTANTE: LA DEMO NO SINCRONIZA DATOS ENTRE PERSONAS
+------------------------------------------------------
+La demo guarda los cambios en el navegador local. Compartir el enlace de la demo no significa que el resto del equipo vea tus cambios. Las contrasenas de prueba estan dentro del codigo y no son seguras.
+
+PARA USO REAL COMPARTIDO
+-----------------------
+1. Crea un proyecto nuevo en Supabase (https://supabase.com).
+2. Ejecuta el archivo "supabase.sql" en el SQL Editor de Supabase.
+3. Configura y autoriza las cuentas de correo reales siguiendo "README.md".
+4. Edita "config.js" para indicar MODE: 'supabase', SUPABASE_URL y la CLAVE PUBLICA del proyecto (nunca una clave secreta).
+5. Sube index.html, styles.css, app.js, data.js y config.js a un repositorio y activa GitHub Pages desde Settings > Pages.
+6. Verifica el acceso y la sincronizacion entre dos navegadores antes de registrar datos reales.
+
+RECOMENDACION DE SEGURIDAD
+-------------------------
+No introduzcas informacion confidencial de clientes o asuntos reales hasta contar con autorizacion de TI/seguridad, comprobar las politicas de acceso y privacidad y aprobar el servicio de alojamiento externo.
+
+Para instrucciones detalladas, consulta README.md.
